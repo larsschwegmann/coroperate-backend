@@ -26,7 +26,7 @@ class ShoppingList(models.Model):
     """
     A list of shopping items.
     """
-    pass
+    max_price = models.DecimalField(max_digits=6, decimal_places=2)
 
 
 class ShoppingItem(models.Model):
