@@ -33,4 +33,6 @@ class ShoppingItem(models.Model):
     """
     An item in a shopping list.
     """
-    pass
+    shopping_list = models.ForeignKey(ShoppingList, on_delete=models.CASCADE)
+    name = models.CharField(max_length=32)
+    description = models.TextField(max_length=128, blank=True, default='')
