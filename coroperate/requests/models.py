@@ -18,12 +18,14 @@ class Request(models.Model):
     """
     A request for a shopping service.
     """
+    owner = models.ForeignKey(User, related_name='owner', on_delete=models.CASCADE)
     address = models.CharField(max_length=32)
     zip_code = models.CharField(max_length=10)
     city = models.CharField(max_length=32)
+    co = models.CharField(max_length=32, default='')
     tip = models.PositiveSmallIntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True)
-    accepted = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    accepted = models.ForeignKey(User, related_name='deliverer', null=True, on_delete=models.SET_NULL)
 
 
 class Rating(models.Model):
