@@ -18,7 +18,7 @@ class Request(models.Model):
     """
     A request for a shopping service.
     """
-    owner = models.ForeignKey(User, related_name='owned_requests')
+    owner = models.ForeignKey(User, related_name='owned_requests', on_delete=models.CASCADE)
     max_price = models.DecimalField(max_digits=6, decimal_places=2, default=20)
     address = models.CharField(max_length=32, default='default street')
     zip_code = models.CharField(max_length=10, default='default zip code')
