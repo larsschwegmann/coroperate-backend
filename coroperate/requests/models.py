@@ -23,9 +23,9 @@ class Request(models.Model):
     zip_code = models.CharField(max_length=10)
     city = models.CharField(max_length=32)
     county = models.CharField(max_length=32)
-    tip = models.PositiveIntegerField(default=0)
+    tip = models.PositiveSmallIntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True)
-    accepted = models.ForeignKey(User, null=True)
+    accepted = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
 
 class Rating(models.Model):
@@ -60,5 +60,4 @@ class ShoppingItem(models.Model):
     An item in a shopping list.
     """
     shopping_list = models.ForeignKey(ShoppingList, on_delete=models.CASCADE)
-    name = models.CharField(max_length=32)
-    description = models.TextField(max_length=128, blank=True, default='')
+    item = models.CharField(max_length=64)
