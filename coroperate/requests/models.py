@@ -21,7 +21,6 @@ class Request(models.Model):
     address = models.CharField(max_length=32)
     zip_code = models.CharField(max_length=10)
     city = models.CharField(max_length=32)
-    county = models.CharField(max_length=32)
     tip = models.PositiveSmallIntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True)
     accepted = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
