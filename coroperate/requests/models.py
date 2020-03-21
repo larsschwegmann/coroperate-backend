@@ -18,7 +18,6 @@ class Request(models.Model):
     """
     A request for a shopping service.
     """
-    shopping_list = models.OneToOneField(shopping_list, on_delete=models.CASCADE)
     address = models.CharField(max_length=32)
     zip_code = models.CharField(max_length=10)
     city = models.CharField(max_length=32)
@@ -52,6 +51,7 @@ class ShoppingList(models.Model):
     """
     A list of shopping items.
     """
+    request = models.OneToOneField(Request, on_delete=models.CASCADE)
     max_price = models.DecimalField(max_digits=6, decimal_places=2)
 
 
