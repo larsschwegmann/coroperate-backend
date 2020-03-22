@@ -8,8 +8,9 @@ class Profile(models.Model):
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone = models.CharField(max_length=16, default='phone x')
-    latitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
-    longitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
+    address = models.CharField(max_length=32, default='address x')
+    zip_code = models.CharField(max_length=10, default='zip code x')
+    city = models.CharField(max_length=32, default='city x')
     radius = models.PositiveSmallIntegerField(default=3)
     verified = models.BooleanField(default=False)
 

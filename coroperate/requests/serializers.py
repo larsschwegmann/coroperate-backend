@@ -10,6 +10,7 @@ class ItemSerializer(serializers.ModelSerializer):
 
 
 class RequestSerializer(serializers.ModelSerializer):
+    owner = serializers.ReadOnlyField(source='owner.username')
     items = ItemSerializer(many=True)
 
     class Meta:
