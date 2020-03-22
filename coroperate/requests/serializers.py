@@ -16,7 +16,7 @@ class RequestSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Request
-        fields = ['id', 'items', 'owner', 'address', 'zip_code', 'city', 'tip', 'date']
+        fields = ['id', 'items', 'owner', 'address', 'zip_code', 'city', 'tip', 'date', 'acceptor']
 
     def create(self, validated_data):
         """
@@ -30,17 +30,12 @@ class RequestSerializer(serializers.ModelSerializer):
         item_serializer.create(validated_item_data)
         return request
 
-    def update(self, validated_data):
+    def update(self, instance, validated_data):
         """
         Custom update method to create request and corresponding items in one go.
         """
-        validated_item_data = validated_data.pop('items')
-        request = Request.objects.create(**validated_data)
-        item_serializer = self.fields['items']
-        for item in validated_item_data:
-            item['request'] = request
-        item_serializer.create(validated_item_data)
-        return request
+        instance.save()
+        return instance()
 
 
 class ProfileSerializer(serializers.ModelSerializer):
