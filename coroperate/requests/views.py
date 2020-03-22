@@ -14,7 +14,16 @@ class RequestListCreate(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        return Request.objects.filter(zip_code=user.profile.zip_code)
+        return Request.objects.filter(zip_code=user.profile.zip_code, acceptor=None)
+
+
+class RequestDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Request.objects.all()
+    permission_classes = [IsAuthenticated]
+    serializer_class = RequestSerializer
+
+    def perform_update(self, serializer):
+        serializer.save(acceptor=self.request.user)
 
 
 class UserCreate(generics.CreateAPIView):
