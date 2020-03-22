@@ -41,3 +41,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'profile', 'username', 'password', 'email']
+
+    def create(self, validated_data):
+        validated_profile_data = validated_data.pop('profile')
+        user = User.objects.create(**validated_data)
+        profile_serializer = self.fields['profile']
+        validated_profile_data['user'] = user
+        profile_serializer.create(validated_profile_data)
+        return user
