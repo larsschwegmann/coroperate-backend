@@ -16,7 +16,7 @@ class RequestSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Request
-        fields = ['items', 'owner', 'address', 'zip_code', 'city', 'tip', 'date']
+        fields = ['id', 'items', 'owner', 'address', 'zip_code', 'city', 'tip', 'date']
 
     def create(self, validated_data):
         """
