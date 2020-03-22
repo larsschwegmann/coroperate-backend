@@ -36,5 +36,5 @@ Return a list of existing requests.
 #### /requests/
 Create a new request as well as the items demanded in that request.
 
-### /users/
+#### /users/
 Create a new user.
