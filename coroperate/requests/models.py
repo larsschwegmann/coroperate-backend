@@ -7,12 +7,9 @@ class Profile(models.Model):
     A user profile for storing information about the user.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=16, default='phone x')
     address = models.CharField(max_length=32, default='address x')
     zip_code = models.CharField(max_length=10, default='zip code x')
     city = models.CharField(max_length=32, default='city x')
-    radius = models.PositiveSmallIntegerField(default=3)
-    verified = models.BooleanField(default=False)
 
 
 class Request(models.Model):
