@@ -38,3 +38,9 @@ Create a new request as well as the items demanded in that request.
 
 #### /users/
 Create a new user.
+
+#### /token/
+Obtain access and refresh JSON web token pair.
+
+#### /token/refresh/
+Return access token if refresh token is valid.
