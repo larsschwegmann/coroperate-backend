@@ -41,6 +41,13 @@ INSTALLED_APPS = [
     'requests.apps.RequestsConfig'
 ]
 
+# Rest API (json web token)
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication'
+    ]
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
