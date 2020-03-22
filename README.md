@@ -22,3 +22,19 @@ Make sure you're in the outer `coroperate` directory. Then, run
 ```
 python manage.py runserver
 ```
+
+## API
+We're using `json`.
+
+### GET
+
+#### /requests/
+Return a list of existing requests.
+
+### POST
+
+#### /requests/
+Create a new request as well as the items demanded in that request.
+
+#### /users/
+Create a new user.
