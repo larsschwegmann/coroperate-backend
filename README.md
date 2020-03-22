@@ -26,21 +26,36 @@ python manage.py runserver
 ## API
 We're using `json`.
 
-### GET
 
-#### /requests/
+```
+/requests/
+```
+#### GET
 Return a list of existing requests.
 
-### POST
-
-#### /requests/
+#### POST
 Create a new request as well as the items demanded in that request.
 
-#### /users/
-Create a new user.
+```
+/requests/<id>
+```
+#### PUT
+Accept the request with `<id>`
 
-#### /token/
+```
+/users/
+```
+#### POST
+Create a new user
+
+```
+/token/
+```
+#### POST
 Obtain access and refresh JSON web token pair.
 
-#### /token/refresh/
+```
+/token/refresh/
+```
+#### POST
 Return access token if refresh token is valid.
