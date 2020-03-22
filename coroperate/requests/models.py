@@ -7,7 +7,7 @@ class Profile(models.Model):
     A user profile for storing information about the user.
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    phone = models.CharField(max_length=16, default='default phone')
+    phone = models.CharField(max_length=16, default='phone x')
     latitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, default=0)
     radius = models.PositiveSmallIntegerField(default=3)
@@ -20,13 +20,15 @@ class Request(models.Model):
     """
     owner = models.ForeignKey(User, related_name='owned_requests', on_delete=models.CASCADE)
     max_price = models.DecimalField(max_digits=6, decimal_places=2, default=20)
-    address = models.CharField(max_length=32, default='default street')
-    zip_code = models.CharField(max_length=10, default='default zip code')
-    city = models.CharField(max_length=32, default='default city')
+    address = models.CharField(max_length=32, default='address x')
+    zip_code = models.CharField(max_length=10, default='zip code x')
+    city = models.CharField(max_length=32, default='city x')
     tip = models.PositiveSmallIntegerField(default=0)
     date = models.DateTimeField(auto_now_add=True)
-    acceptor = models.ForeignKey(User, related_name='accepted_requests', null=True, on_delete=models.SET_NULL)
+    acceptor = models.ForeignKey(User, related_name='accepted_requests', blank=True, null=True, on_delete=models.SET_NULL)
 
+    def __str__(self):
+        return f'Request by {self.owner.username} on {self.date}'
 
 class Rating(models.Model):
     """
@@ -47,6 +49,9 @@ class Rating(models.Model):
     class Meta:
         unique_together = ['author', 'receiver']
 
+    def __str__(self):
+        f'Rating of {self.rating} from {self.author.username} for {self.receiver.username}'
+
 
 class Item(models.Model):
     """
@@ -54,3 +59,6 @@ class Item(models.Model):
     """
     request = models.ForeignKey(Request, related_name='items', on_delete=models.CASCADE)
     item = models.CharField(max_length=64)
+
+    def __str__(self):
+        return f'{self.item}'
