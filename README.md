@@ -24,38 +24,31 @@ python manage.py runserver
 ```
 
 ## API
-We're using `json`.
+The following endpoints are provided:
 
 
 ```
 /requests/
 ```
-#### GET
-Return a list of existing requests.
-
-#### POST
-Create a new request as well as the items demanded in that request.
+* GET: Return a list of existing requests.
+* POST: Create a new request as well as the items demanded in that request.
 
 ```
 /requests/<id>
 ```
-#### PUT
-Accept the request with `<id>`
+* PUT: Accept the request with `<id>`
 
 ```
 /users/
 ```
-#### POST
-Create a new user
+* POST: Create a new user
 
 ```
 /token/
 ```
-#### POST
-Obtain access and refresh JSON web token pair.
+* POST: Obtain JSON web token pair.
 
 ```
 /token/refresh/
 ```
-#### POST
-Return access token if refresh token is valid.
+* POST: Return access token if refresh token is valid.
