@@ -17,7 +17,7 @@ class RequestListCreate(generics.ListCreateAPIView):
         return Request.objects.filter(zip_code=user.profile.zip_code, acceptor=None)
 
 
-class RequestDetail(generics.RetrieveUpdateDestroyAPIView):
+class RequestUpdate(generics.UpdateAPIView):
     queryset = Request.objects.all()
     permission_classes = [IsAuthenticated]
     serializer_class = RequestSerializer

@@ -6,7 +6,7 @@ from requests import views
 urlpatterns = [
     path('requests/', views.RequestListCreate.as_view()),
     path('users/', views.UserCreate.as_view()),
-    path('requests/<int:pk>/', views.RequestDetail.as_view())
+    path('requests/<int:pk>/', views.RequestUpdate.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
