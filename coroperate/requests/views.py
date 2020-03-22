@@ -7,11 +7,23 @@ from requests.serializers import RequestSerializer, UserSerializer
 # Create your views here.
 class RequestListCreate(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
-    queryset = Request.objects.all()
     serializer_class = RequestSerializer
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
+
+    def get_queryset(self):
+        user = self.request.user
+        return Request.objects.filter(zip_code=user.profile.zip_code, acceptor=None)
+
+
+class RequestDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Request.objects.all()
+    permission_classes = [IsAuthenticated]
+    serializer_class = RequestSerializer
+
+    def perform_update(self, serializer):
+        serializer.save(acceptor=self.request.user)
 
 
 class UserCreate(generics.CreateAPIView):
