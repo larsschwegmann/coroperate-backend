@@ -10,6 +10,9 @@ class RequestListCreate(generics.ListCreateAPIView):
     queryset = Request.objects.all()
     serializer_class = RequestSerializer
 
+    def perform_create(self, serializer):
+        serializer.save(owner=self.request.user)
+
 
 class UserCreate(generics.CreateAPIView):
     queryset = User.objects.all()
