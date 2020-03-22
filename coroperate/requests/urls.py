@@ -4,7 +4,8 @@ from requests import views
 
 
 urlpatterns = [
-    path('', views.RequestList.as_view())
+    path('requests/', views.RequestListCreate.as_view()),
+    path('users/', views.UserCreate.as_view())
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

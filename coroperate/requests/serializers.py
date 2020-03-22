@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
 from requests.models import Request, Item
 
@@ -26,3 +27,9 @@ class RequestSerializer(serializers.ModelSerializer):
             item['request'] = request
         item_serializer.create(validated_item_data)
         return request
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'password', 'email', 'first_name', 'last_name']
