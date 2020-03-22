@@ -28,6 +28,7 @@ class Request(models.Model):
     def __str__(self):
         return f'Request by {self.owner.username} on {self.date}'
 
+
 class Rating(models.Model):
     """
     A rating for a user by another user.
