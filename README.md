@@ -1,7 +1,7 @@
 # coroperate-backend
 This is the back-end code for **coroperate**, an app that we developed for the [#WirVsVirus Hackathon](https://wirvsvirushackathon.org/) of the German government. Check out a description of our project on [Devpost](https://devpost.com/software/34_nachbarschaftshilfe_coroperate) or watch the pitch video on [YouTube](https://www.youtube.com/watch?v=vWjDtBLyH1g&feature=emb_logo).
 
-This repo contains the back-end of the app, a REST API built with [django](https://www.djangoproject.com/) and [django REST framework](https://www.django-rest-framework.org/).
+This repo contains the back-end of the app, a REST API built with [django](https://www.djangoproject.com/) and [django REST framework](https://www.django-rest-framework.org/). The iOS front-end can be found [here](https://github.com/larsschwegmann/coroperate-ios).
 
 ## Set up
 You need Python 3.6 or newer.
