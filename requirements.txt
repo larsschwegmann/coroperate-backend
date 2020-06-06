@@ -1,7 +1,7 @@
 asgiref==3.2.5
 certifi==2019.11.28
 chardet==3.0.4
-Django==3.0.4
+Django==3.0.7
 djangorestframework==3.11.0
 djangorestframework-simplejwt==4.4.0
 httpie==2.0.0
