@@ -6,7 +6,7 @@ djangorestframework==3.11.0
 djangorestframework-simplejwt==4.4.0
 httpie==2.0.0
 idna==2.9
-Pygments==2.6.1
+Pygments==2.7.4
 PyJWT==1.7.1
 pytz==2019.3
 requests==2.23.0
